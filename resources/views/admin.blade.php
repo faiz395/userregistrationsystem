@@ -131,11 +131,12 @@
                 /* Adjust padding for smaller screens */
             }
         }
+
         .alert-container {
             margin-bottom: 20px;
         }
 
-        .error-container{
+        .error-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -145,12 +146,26 @@
 </head>
 
 <body>
-
+    @if(session('error'))
+    <div class="alert alert-danger error-container">
+        {{ session('error') }}
+    </div>
+    @endif
+    @if($errors->any())
+    <div class="alert alert-danger error-container">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     @if(session('success'))
     <div class="alert alert-success error-container">
         {{ session('success') }}
     </div>
     @endif
+
     @auth
     <div class="container admin-container">
         <h2>Admin Dashboard - Registered Users</h2>

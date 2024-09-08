@@ -23,12 +23,14 @@
             align-items: center;
             min-height: 100vh;
         }
-        .error-container{
+
+        .error-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center
         }
+
         .form-box {
             background: #ffffff;
             padding: 40px;
@@ -76,24 +78,24 @@
 
 <body>
     @if(session('error'))
-    <div class="alert alert-danger error-container" >
+    <div class="alert alert-danger error-container">
         {{ session('error') }}
     </div>
     @endif
     @if(session('success'))
-    <div class="alert alert-success error-container" >
+    <div class="alert alert-success error-container">
         {{ session('success') }}
     </div>
     @endif
     @if($errors->any())
-            <div class="alert alert-danger error-container">
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    <div class="alert alert-danger error-container">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     @auth
     <div class="form-container">
@@ -148,8 +150,8 @@
     </div>
 
     <script>
-        document.getElementById('userSignupForm').addEventListener('submit',function(e){
-            
+        document.getElementById('userSignupForm').addEventListener('submit', function(e) {
+
         })
         document.getElementById('toSignup').addEventListener('click', function() {
             document.getElementById('loginBox').classList.add('d-none');
@@ -163,8 +165,8 @@
     </script>
 
 
-@endauth
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @endauth
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
